@@ -21,7 +21,9 @@ const ImageCarousel = ({ images }) => {
     };
     return (
         <div className="carousel">
-            <button className="carousel-button prev" onClick={prevSlide}>&#10094;</button>
+            <button className="carousel-button prev" onClick={() => {
+                prevSlide()
+            }}>&#10094;</button>
             {images?.map((image, index) => (
                 <img
                     src={image}
@@ -35,20 +37,11 @@ const ImageCarousel = ({ images }) => {
     );
 }
 
-const Lesson = () => {
-    const lesson = ['Link-List', 'API', 'ReactJS', 'Router', 'Login System', "Github", "How to deploy"];
-    return (
-        <div>
-            <ul>
-                {
-                    lesson.map((lesson, index) => (
-                        <li key={index}>{lesson}</li>
-                    ))
-                }
-            </ul>
-        </div>
-    )
-};
+// const Lesson = () => {
+//     return (
+
+//     )
+// };
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -65,7 +58,7 @@ const Profile = () => {
         if (!token) {
             navigate("/authentication")
             return;
-        } else { 
+        } else {
             navigate("/profile");
         }
 
@@ -87,6 +80,9 @@ const Profile = () => {
         image2,
         image3,
     ]
+
+    const lesson = ["Java","HTML","CSS",'Link-List', 'API', 'ReactJS', 'Router', 'Login System', "Github", "How to deploy"];
+
     return (
 
         <div className="profile">
@@ -99,9 +95,19 @@ const Profile = () => {
                 <h2>Learning JS React web development workshop</h2>
                 <p>It's been about 2 week that i was participant of JS React web Development Workshop</p>
                 <p>there's many important thing i have learn such as:</p>
-                <hr></hr><Lesson></Lesson>
-                <ImageCarousel images={carouselImages}></ImageCarousel>
+                <hr></hr>
+                {/* <Lesson></Lesson> */}
+                <div>
+                    <ul>
+                        {
+                            lesson.map((lesson, index) => (
+                                <li key={index}>{lesson}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </form>
+            <ImageCarousel images={carouselImages}></ImageCarousel>
 
             <style jsx>{`
             .profile{
@@ -130,7 +136,7 @@ const Profile = () => {
                 border: 8px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 10);
             }
-              .form {
+            .form {
                 display: flex;
                 flex-direction: column;
                 width: 700px;
@@ -159,45 +165,45 @@ const Profile = () => {
                 background-color white;
                 text-align: start;
             }
-                            button {
-                    margin-left: 10px;
-                    cursor: pointer;
-                    padding: 5px 10px;
-                    background-color: #ff4444;
-                    color: white;
-                    border: none;
-                    border-radius;
+            button {
+                margin-left: 10px;
+                cursor: pointer;
+                padding: 5px 10px;
+                background-color: #ff4444;
+                color: white;
+                border: none;
+                border-radius;
+            }
+            .carousel {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                margin: 0px auto;
+            }
+            .carousel-image{
+                width:100%;
+                height: auto;
+                display: none;
                 }
-                .carousel {
-                    position: relative;
-                    width: 100%;
-                    max-width: 600px;
-                    margin: 0px auto;
+            .carousel-image.active{
+                display: block;
                 }
-                .carousel-image{
-                    width:100%;
-                    height: auto;
-                    display: none;
+            .carousel-button{
+                position: absolute;
+                top:50%;
+                transform: translateY(-50);
+                background-color: rgba{0, 0, 0, 5};
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                font-size: 18px;
                 }
-                .carousel-image.active{
-                    display: block;
-                }
-                .carousel-button{
-                    position: absolute;
-                    top:50%;
-                    transform: translateY(-50);
-                    background-color: rgba{0, 0, 0, 5};
-                    color: white;
-                    border: none;
-                    padding: 10px 15px;
-                    cursor: pointer;
-                    font-size: 18px;
-                }
-                .prev {
-                    left: 10px;
-                }
-                .next {
-                    right: 10px;
+            .prev {
+                left: 10px;
+            }
+            .next {
+                right: 10px;
 
         `}
             </style>
