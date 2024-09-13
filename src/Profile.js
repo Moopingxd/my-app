@@ -81,7 +81,7 @@ const Profile = () => {
         image3,
     ]
 
-    const lesson = ["Java","HTML","CSS",'Link-List', 'API', 'ReactJS', 'Router', 'Login System', "Github", "How to deploy"];
+    const lesson = ["Java", "HTML", "CSS", 'Link-List', 'API', 'ReactJS', 'Router', 'Login System', "Github", "How to deploy"];
 
     return (
 
@@ -115,7 +115,8 @@ const Profile = () => {
                 margin: 0 auto;
                 padding: 20px;
                 margin-top: 20px;
-                background-color: #white;
+                background: rgb(255,255,255);
+                background: linear-gradient(180deg, rgba(255,255,255,1) 35%, rgba(189,244,255,1) 100%);
             }
             .back{
                 padding: 7px 15px;
