@@ -19,7 +19,7 @@ const App = () => {
   const [currentDay, setCurrentDay] = useState(9);
 
   useEffect(() => {
-    if(!localStorage.getItem('token')){
+    if (!localStorage.getItem('token')) {
       navigate("/authentication");
     }
   }, [])
@@ -27,19 +27,19 @@ const App = () => {
   const handleDayClick = (day) => {
     setCurrentDay(day);
   };
-  const handleprofile = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-          Swal.fire({
-              title: "Your're not Login,",
-              icon: "warning",
-              text: "Please Login to do this action"
-          })
-          return;   
-  } else {
-    navigate("/profile");
+  const handleProfile = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      Swal.fire({
+        title: "Your're not Login,",
+        icon: "warning",
+        text: "Please Login to do this action"
+      })
+      return;
+    } else {
+      navigate("/profile");
+    }
   }
-}
   const handleLogout = async () => {
     const result = await Swal.fire({
       title: "Are you sure?",
@@ -103,7 +103,7 @@ const App = () => {
         }}
       >Log out</button>
       <button className="profile"
-        onClick={async()=>{handleprofile()}}>Profile</button>
+        onClick={async () => await handleProfile()}>Profile</button>
       <style jsx>
         {`
           .app {
